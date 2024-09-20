@@ -5,9 +5,9 @@ import TextForm from './components/TextForm';
 import About from './components/About';
 import Alert from './components/Alert';
 import { useState } from 'react';
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Use Routes instead of Switch
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Use Routes instead of Switch
 
-let name = "Vikash";
+
 
 function App() {
   const [mode, setMode] = useState('light');
@@ -39,35 +39,34 @@ function App() {
 
   return (
     <>
-      {/* <Router> */}
+      <Router>
         <div className="container my-3">
           <Navbar title="Navbar Field" mode={mode} toggleMode={toggleMode} aboutText="About Us" />
         </div>
 
         <Alert alert={alert} />
 
-        {/* <Routes>
+        <Routes>
           <Route
             exact
             path="/"
-            element={ */}
+            element={
               <div className="container my-3">
                 <TextForm showAlert={showAlert} heading="Enter your text" mode={mode} />
               </div>
-            {/* }
+            }
           />
-
           <Route
             exact
             path="/about"
-            element={ */}
+            element={
               <div className="container my-3">
-                <About />
+                <About mode={mode}/>
               </div>
-            {/* }
+            }
           />
         </Routes>
-      </Router> */}
+      </Router> 
     </>
   );
 }
